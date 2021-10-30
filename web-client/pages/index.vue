@@ -7,7 +7,7 @@
       </v-card>
       <v-card>
         <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
+           {{message}} Welcome to the Vuetify + Nuxt.js template
         </v-card-title>
         <v-card-text>
           <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
@@ -17,7 +17,7 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              documentation
+              documentation vcb
             </a>.
           </p>
           <p>
@@ -27,7 +27,7 @@
               rel="noopener noreferrer"
               title="chat"
             >
-              discord
+              discord  v
             </a>.
           </p>
           <p>
@@ -75,3 +75,22 @@
     </v-col>
   </v-row>
 </template>
+<script>
+import Axios from 'axios'
+export default {
+
+  asyncData (payload) {
+    return Axios.get('http://localhost:5000/api/home')
+      .then(({ data }) => {
+        return { message: data }
+      })
+  },
+  data: () => ({
+    message: ''
+  }),
+
+  created () {
+
+  }
+}
+</script>
