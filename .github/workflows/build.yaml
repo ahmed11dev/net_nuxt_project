@@ -1,0 +1,13 @@
+name: Build my Application
+
+on: push
+
+jobs:
+  build:
+    name: build our App
+    rins-on: ubuntu-latest
+    steps:
+      - name: print current Directory
+        run: pwd
+      - name: list files in Directory 
+        run: ls
